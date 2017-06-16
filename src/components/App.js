@@ -1,12 +1,33 @@
-import React from 'react';
+import React, {Component} from 'react';
 import './App.css';
+import Header from './Header';
+import SubHeader from './SubHeader';
+import SubSub from './SubSub';
+import Paragraph from './Paragraph';
+import UserProfile from './UserProfile.js';
+import User from '../sampleUser.json';
 
-function App(props) {
-  return (
-    <div>
-      <h1 className="app-header">Hello React</h1>
-    </div>
-  );
+class App extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      User: User.results,
+    }
+  }
+
+  render() {
+    return (
+      <div>
+        <Header/>
+        <SubHeader/>
+        <SubSub/>
+        <Paragraph/>
+        <UserProfile/>
+      </div>
+    );
+  }
 }
+
+
 
 export default App;
