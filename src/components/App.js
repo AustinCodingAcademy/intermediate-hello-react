@@ -11,9 +11,10 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      User: User.results,
+      user: User.results,
     }
   }
+
 
   render() {
     return (
@@ -22,7 +23,7 @@ class App extends Component {
         <SubHeader/>
         <SubSub/>
         <Paragraph/>
-        <UserProfile/>
+        <UserProfile user={this.state.user}/>
       </div>
     );
   }
