@@ -1,7 +1,7 @@
 import React from 'react';
 
 function Header(props) {
-    return <h1>Hello ACA</h1>;
+    return <h1>Intermediate React</h1>;
 }
 
 export default Header;

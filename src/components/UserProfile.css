@@ -1,0 +1,17 @@
+.usersAll {
+  text-align: center;
+  padding: 50px;
+  background-color: aliceblue;
+}
+
+.userCard {
+  width: 500px;
+  margin: auto;
+  margin-bottom: 50px;
+  border: 3px solid grey;
+}
+
+.userCard h3 {
+  padding: 10px;
+  background-color: cadetblue
+}
