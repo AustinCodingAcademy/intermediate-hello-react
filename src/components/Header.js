@@ -1,7 +1,7 @@
 import React from 'react';
 
 function Header(props) {
-    // Make it so
+    return <h1>Intermediate React</h1>;
 }
 
 export default Header;
