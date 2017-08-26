@@ -1,5 +1,5 @@
 import React from 'react';
-import { withState } from 'recompose';
+import { withState, compose, withHandlers } from 'recompose';
 import axios from 'axios';
 import Header from './Header';
 import randomUsers from '../randomUsers';
@@ -9,33 +9,42 @@ import './App.css';
 const URL = (results = 25) =>
   `https://randomuser.me/api?results=${results}`;
 
-
 const { users: dummyUsers } = randomUsers;
 
-const App = withState('contacts', 'fetchContacts', { users: [] })(
-  ({ contacts: { users }, fetchContacts }) =>
+export default compose(
+  withState('contacts', 'fetchContacts', { list: [], error: '' }),
+  withHandlers({
+    fetchContacts: ({ fetchContacts }) =>
+      (e) => axios
+        .get(URL(parseInt(Math.random() * 100, 10)))
+        .then(res => fetchContacts(
+          (contacts) => ({
+            ...contacts,
+            list: res.data.results,
+          })
+        ))
+      .catch(error => fetchContacts(
+        (contacts) => ({
+          ...contacts,
+          list: [],
+          error,
+        })
+      )
+    ),
+  })
+)(
+  ({ contacts: { list, error }, fetchContacts }) =>
     <div className="App">
       <Header
-        contacts={users.length ? users : dummyUsers}
+        contacts={list.length ? list : dummyUsers}
       />
       <button
-        onClick={() =>
-          axios.get(URL(parseInt(Math.random() * 100, 10)))
-          .then(res =>
-            fetchContacts(({ users }) => ({
-              users: res.data.results,
-            })
-            )
-          )
-          .catch(err => console.error(err))
-        }
+        onClick={fetchContacts}
       >
         Fetch Contacts
       </button>
       <List
-        contacts={users.length ? users : dummyUsers}
+        contacts={list.length ? list : dummyUsers}
       />
     </div>
 );
-
-export default App;
