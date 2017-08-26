@@ -6,7 +6,8 @@
     "axios": "^0.16.2",
     "eslint": "^3.19.0",
     "react": "^15.5.4",
-    "react-dom": "^15.5.4"
+    "react-dom": "^15.5.4",
+    "recompose": "^0.25.0"
   },
   "devDependencies": {
     "eslint": "^3.19.0",
