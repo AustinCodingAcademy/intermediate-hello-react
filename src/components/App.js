@@ -11,9 +11,11 @@ const URL = (results = 25) =>
 
 const { users: dummyUsers } = randomUsers;
 
+
 export default compose(
   withState('contacts', 'fetchContacts', { list: [], error: '' }),
   withHandlers({
+
     fetchContacts: ({ fetchContacts }) =>
       (e) => axios
         .get(URL(parseInt(Math.random() * 100, 10)))
@@ -31,6 +33,7 @@ export default compose(
         })
       )
     ),
+
   })
 )(
   ({ contacts: { list, error }, fetchContacts }) =>
