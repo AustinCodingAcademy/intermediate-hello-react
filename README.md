@@ -63,3 +63,4 @@ function UserProfile (props) {
 ```
   - Now, `import` the data from `sampleUser.json` to `index.js` and pass it down as `props` to your `UserProfile` component.
   - Once you have data rendering via `props`, you'll want to use [`.map`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/map?v=control) to iterate over the Array of user data. If you access user data from `props`, you'll find that there's a way to easily swap out the single user in `sampleUser.json` with multiple users in `users.json`.
+# flow-starter
