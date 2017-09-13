@@ -1,12 +1,33 @@
-import React from 'react';
-import './App.css';
+import React from 'react'
+import { connect } from 'react-redux'
+import { bindActionCreators } from 'redux'
+import ListOfUsers from './ListOfUsers'
+import { fetchUsersAction } from '../redux/api'
+import User from '../sampleUser.json'
+import Users from '../randomUsers.json'
+import './App.css'
 
-function App(props) {
+const App = (props) => {
   return (
     <div>
-      <h1 className="app-header">Hello React</h1>
+      <h1 className="app-header">Hello Zac</h1>
+      <ListOfUsers
+        users={Users}
+      />
+      <button
+        onClick={props.fetchUsers}
+      >Click</button>
     </div>
-  );
+  )
 }
 
-export default App;
+const mapStateToProps = (state) => ({
+  api: state.users,
+})
+const mapDispatchToProps = (dispatch) => ({
+  fetchUsers: bindActionCreators(fetchUsersAction, dispatch),
+})
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(App)
