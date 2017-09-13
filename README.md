@@ -34,6 +34,19 @@ Use this repo to get some practice making **small**, **composable** components.
   - `import` the data into `index.js` and **set** it as a prop on your `App` component (in the `render` method)
   - Work in small pieces, one step at a time - and **commit** your work every time you finish a feature.
 
+### Homework 6/15
+
+- create a new *functional* component called `UserProfile.js`. For now, just have it return an empty `<div></div>` or something.
+(fix errors, commit your work)
+- `import` the `sampleUser` into `App.js` and place it in your `constructor(props)` as an initial `state` value.
+(fix errors, commit your work)
+- *set* the user data you're holding in `state` as a `prop` on the `<UserProfile />` component (don't forget to `export` & `import` the UserProfile)
+(fix errors, commit your work)
+- fix any errors and verify that the `<UserProfile />` is receiving `props` from `<App />` by using the React DevTools
+(fix errors, commit your work)
+- Now add JSX to `UserProfile.js` that will allow you to render the `user` data from `props`
+(fix errors, commit your work)
+
 ### Hints
 - Start with the `UserProfile`.
   - Don't try to do it all at once. Just write the component with statically defined data, and get it rendering:

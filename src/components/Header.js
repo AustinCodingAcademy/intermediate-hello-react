@@ -1,7 +1,7 @@
-import React from 'react';
+import React from 'react'
 
 function Header(props) {
-    // Make it so
+  // Make it so
 }
 
-export default Header;
+export default Header

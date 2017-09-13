@@ -31,8 +31,8 @@ module.exports = {
             "single"
         ],
         "semi": [
-            "error",
-            "always"
+            "warn",
+            "never"
         ]
     }
 };
