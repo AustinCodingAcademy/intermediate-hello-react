@@ -1,6 +1,17 @@
+// @flow
 import React from 'react'
 
-export default ({name, picture, index}) =>
+type Props = {
+  name: Object,
+  picture: Object,
+  index: number,
+}
+
+export default ({
+  name,
+  picture,
+  index,
+  }: Props) =>
   <div key={index}>
     <li>{name.first} {name.last}</li>
     <img

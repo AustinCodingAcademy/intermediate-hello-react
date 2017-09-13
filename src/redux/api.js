@@ -10,11 +10,24 @@ const initialState = {
   results: {},
 }
 
-const FETCH_USERS_BEGIN = 'FETCH_USERS_BEGIN'
-const FETCH_USERS_SUCCESS = 'FETCH_USERS_SUCCESS'
-const FETCH_USERS_ERROR = 'FETCH_USERS_ERROR'
+const FETCH_USERS_BEGIN: string = 'FETCH_USERS_BEGIN'
+const FETCH_USERS_SUCCESS: string  = 'FETCH_USERS_SUCCESS'
+const FETCH_USERS_ERROR: string  = 'FETCH_USERS_ERROR'
 
-const api = (state = initialState, action) => {
+type State = {|
+  +isFetching: boolean,
+  +error: {
+    +status: string,
+    +message: string,
+  },
+  +results: Object,
+|}
+type Action = {
+  type: string,
+  payload: Object,
+}
+
+const api = (state: State = initialState, action: Object) => {
 
   switch (action.type) {
   case FETCH_USERS_BEGIN:
@@ -45,13 +58,13 @@ const api = (state = initialState, action) => {
 
 export const fetchUsersBegin = () =>
   ({ type: FETCH_USERS_BEGIN })
-export const fetchUsersSuccess = (payload) =>
+export const fetchUsersSuccess = (payload: Array<*>) =>
   ({ type: FETCH_USERS_SUCCESS, payload })
-export const fetchUsersError = (payload, error) =>
+export const fetchUsersError = (error: Object) =>
   ({ type: FETCH_USERS_ERROR, error })
 
-export const fetchUsersAction = (amount = 10) => {
-  return (dispatch) => {
+export const fetchUsersAction = (amount: number = 10) => {
+  return (dispatch: any) => {
     dispatch(fetchUsersBegin())
     return axios.get(`https://randomuser.me/api?results=${amount}`)
       .then(res =>
